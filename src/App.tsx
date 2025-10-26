@@ -25,13 +25,13 @@ export default function App() {
 
   const issueList = issues.map((issue: Issue) => <p>{issue.title}</p>);
 
-  // const addIssue = (e: FormEvent) => {
-  //   e.preventDefault();
-  //   const newIssue = { title: inputValue };
-  //   dbData.push(newIssue);
-  //   setIssues(dbData);
-  //   setInputValue("");
-  // };
+  const addIssue = (e: FormEvent) => {
+    e.preventDefault();
+    // const newIssue = { title: inputValue };
+    // dbData.push(newIssue);
+    // setIssues(dbData);
+    setInputValue("");
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -41,7 +41,7 @@ export default function App() {
     <>
       <h1>Issue Tracker</h1>
       <div>{issueList}</div>
-      <form onSubmit={() => {}}>
+      <form onSubmit={addIssue}>
         <input type="text" onChange={handleChange} value={inputValue} />
         <input type="submit" value="Add" />
       </form>
